@@ -1,32 +1,18 @@
-$(document).ready(function() {
-	var animationTimeline = new TimelineMax({paused: true});
-	var revealer = $('.revealer');
-	
-	var navigation = $('.navbar');
-	var description = $('.description');
-	var imgWrapper = $('.img-wrapper');
-	
-	var animationTime = 1;
-	var easeOut = Expo.easeOut;
-	
-	animationTimeline.fromTo(revealer, animationTime,
-	{scale: "0", opacity: 1},
-	{scale: "300%", opacity: 1}
-	).to(revealer, animationTime, {opacity:0, display:"none"})
-	.add("end", 1.5)
-	.fromTo(navigation, animationTime, {y:"-100%"}, {y:"0%", ease:easeOut}, "end")
-	.fromTo(description, animationTime, {x:"-150%"}, {x:"0%", ease:easeOut}, "end")
-	.fromTo(imgWrapper, animationTime, {y:"150%"}, {y:"0%", ease:easeOut}, "end")
-	.to(imgWrapper, animationTime, {rotation:"25deg",  ease:easeOut})
-	.to(imgWrapper, animationTime, {rotation:"-25deg", ease:easeOut})
-	.to(imgWrapper, animationTime, {rotation:"0deg", ease:easeOut})
-	;
-	animationTimeline.play();
-});
-
 /*animations*/
+TweenMax.from(".img-wrapper", 3, {
+	delay: 0,
+	opacity: 0,
+	x: -50,
+	ease: Expo.easeInOut
+});
+TweenMax.from(".description", 3, {
+	delay: 1.0,
+	opacity: 0,
+	y: -50,
+	ease: Expo.easeInOut
+});
 TweenMax.from(".other", 3, {
-	delay: 2.0,
+	delay: 1.0,
 	opacity: 0,
 	y: 50,
 	ease: Expo.easeInOut
